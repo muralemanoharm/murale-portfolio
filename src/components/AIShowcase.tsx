@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bot, Terminal, Zap } from "lucide-react";
+import { Bot, Terminal, Zap, MessageSquare } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -17,7 +17,7 @@ const cards = [
     icon: <Bot size={22} />,
     title: "Claude — My Primary AI Partner",
     description:
-      "I use Claude daily for code review, debugging, architectural decisions, and writing. Claude API powers the listing generation pipeline in Packlio — users upload a product image and Claude Vision returns SEO-optimised titles, descriptions, and tags.",
+      "I use Claude daily for code review, debugging, architectural decisions, and writing. Claude API powers the listing generation pipeline in Packlio where users upload a product image and Claude Vision returns SEO-optimised titles, descriptions, and tags.",
     badge: "Used in production",
     badgeColor: "accent",
   },
@@ -25,7 +25,7 @@ const cards = [
     icon: <Terminal size={22} />,
     title: "Claude Code — Agentic Coding",
     description:
-      "Claude Code Desktop understands my entire codebase at once. I use it for scaffolding new modules, large-scale refactors, and writing tests — tasks that take hours manually now take minutes.",
+      "Claude Code Desktop understands my entire codebase at once. I use it for scaffolding new modules, large-scale refactors, and writing tests, tasks that take hours manually now take minutes.",
     badge: "Daily driver",
     badgeColor: "accent",
   },
@@ -33,8 +33,16 @@ const cards = [
     icon: <Zap size={22} />,
     title: "GitHub Copilot",
     description:
-      "Inline autocomplete in Eclipse and VS Code for repetitive boilerplate — Java bean constructors, SQL queries, TestNG test stubs. Speeds up the mechanical parts of coding.",
+      "Used in VS Code and Eclipse for inline autocomplete and agentic code generation. GitHub Copilot Agents handle multi-step coding tasks, writing boilerplate, generating test stubs, and scaffolding new files.",
     badge: "IDE integration",
+    badgeColor: "muted",
+  },
+  {
+    icon: <MessageSquare size={22} />,
+    title: "ChatGPT",
+    description:
+      "Used for content drafting, copywriting, and quick brainstorming, email copy, documentation drafts, and getting a second opinion outside my usual workflow.",
+    badge: "Content generation",
     badgeColor: "muted",
   },
 ];
@@ -143,11 +151,10 @@ export default function AIShowcase() {
                       card.badgeColor === "accent" ? "var(--accent-dim)" : "rgba(255,255,255,0.05)",
                     color:
                       card.badgeColor === "accent" ? "var(--accent)" : "var(--text-muted)",
-                    border: `1px solid ${
-                      card.badgeColor === "accent"
-                        ? "rgba(0,212,170,0.2)"
-                        : "var(--border)"
-                    }`,
+                    border: `1px solid ${card.badgeColor === "accent"
+                      ? "rgba(0,212,170,0.2)"
+                      : "var(--border)"
+                      }`,
                   }}
                 >
                   {card.badge}

@@ -102,27 +102,6 @@ export default function Projects() {
                 cursor: "default",
               }}
             >
-              {/* Featured badge for Packlio */}
-              {project.highlight && (
-                <div>
-                  <span
-                    style={{
-                      fontFamily: "JetBrains Mono, monospace",
-                      fontSize: 10,
-                      fontWeight: 600,
-                      letterSpacing: "0.1em",
-                      color: "var(--indigo)",
-                      background: "var(--indigo-dim)",
-                      border: "1px solid rgba(99,102,241,0.25)",
-                      borderRadius: 4,
-                      padding: "3px 8px",
-                    }}
-                  >
-                    PERSONAL · FEATURED
-                  </span>
-                </div>
-              )}
-
               {/* Top row */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
                 <h3
@@ -140,7 +119,7 @@ export default function Projects() {
               </div>
 
               {/* Type badge */}
-              <div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 <span
                   style={{
                     fontSize: 12,
@@ -160,6 +139,21 @@ export default function Projects() {
                 >
                   {project.type}
                 </span>
+                {project.highlight && (
+                  <span
+                    style={{
+                      fontSize: 12,
+                      fontWeight: 500,
+                      borderRadius: 999,
+                      padding: "3px 10px",
+                      background: "var(--indigo-dim)",
+                      color: "var(--indigo)",
+                      border: "1px solid rgba(99,102,241,0.2)",
+                    }}
+                  >
+                    Featured
+                  </span>
+                )}
               </div>
 
               {/* Description */}

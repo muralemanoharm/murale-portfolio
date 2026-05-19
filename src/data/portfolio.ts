@@ -1,14 +1,14 @@
 export const personalInfo = {
   name: "Murale Manohar M",
   role: "Backend Java Developer",
-  tagline: "Building scalable systems at Zoho. Targeting FAANG.",
+  tagline: "Software Engineer · Backend Systems · Java",
   email: "muralemanoharm@gmail.com",
   phone: "+91 9361144291",
   location: "Tiruchirappalli, India",
   github: "https://github.com/muralemanoharm",
   linkedin: "www.linkedin.com/in/murale-manohar-m-646284190",
   summary:
-    "Backend Java Developer with 3+ years at Zoho building scalable APIs, automation frameworks, and productivity tools. Skilled in Java, Servlets, TestNG, MySQL, Apache Ant, and Maven. Experienced in CI/CD pipelines, Eclipse plugin development, and custom framework design.",
+    "Backend Java Developer with 3+ years of experience designing and scaling REST APIs, automation frameworks, and internal developer tooling at Zoho. Proficient in Java, Spring Boot, MySQL, Maven, Docker, and TestNG. Experienced in CI/CD pipelines, test automation, and AI-assisted development. Strong foundation in OOP, multithreading, and distributed system concepts.",
 };
 
 export interface Project {
@@ -27,14 +27,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "packlio",
+    name: "Packlio",
+    type: "Personal Project",
+    typeColor: "indigo",
+    description:
+      "AI-powered SaaS tool that converts product images into marketplace listings for Etsy, Gumroad, and Creative Market sellers via a multi-agent pipeline (Claude API, Ideogram v3). Includes Razorpay payment integration with a four-tier subscription model and automated email workflows via Resend. Serverless backend on Supabase with Row Level Security and multi-tenant auth.",
+    stack: ["Next.js 14", "Supabase", "Claude API", "Ideogram v3", "Razorpay", "Docker", "TypeScript"],
+    impact: "Target 1K+ users",
+    status: "Building",
+    statusColor: "amber",
+    highlight: true,
+  },
+  {
     id: "eclipse-plugin",
     name: "Eclipse Project Builder Plugin",
     type: "Work Project",
     typeColor: "teal",
     description:
-      "Custom Eclipse plugin extending the Incremental Project Builder API — enables automated builds on file save, targeting only modified files. Boosted developer productivity by 80% by eliminating manual build triggers.",
+      "Extended Eclipse's Incremental Project Builder API to automate builds on file save, eliminating manual build triggers during development. Implemented delta-based build targeting, only modified files are compiled, reducing build time by 60% and boosting team productivity by 80%.",
     stack: ["Java", "Eclipse API", "Apache Ant", "Incremental Build API"],
-    impact: "80% productivity boost",
+    impact: "60% faster builds",
     status: "Shipped",
     statusColor: "green",
   },
@@ -44,7 +57,7 @@ export const projects: Project[] = [
     type: "Work Project",
     typeColor: "teal",
     description:
-      "Configuration-driven Create-Update-Delete framework that auto-manages table relationships and executes database operations. Cut boilerplate servlet code by 80% and reduced development time by 40% across the team.",
+      "Architected a configuration-driven Create-Update-Delete framework over Java Servlets, eliminating 80% of boilerplate code and cutting development time by 40%. Implemented automatic table relationship management and dynamic query generation, adopted team-wide to standardise database operations.",
     stack: ["Java", "MySQL", "Java Servlets", "JDBC"],
     impact: "40% faster dev cycles",
     status: "Shipped",
@@ -52,41 +65,27 @@ export const projects: Project[] = [
   },
   {
     id: "product-assets",
-    name: "Product Assets System",
+    name: "Product Assets Module",
     type: "Work Project",
     typeColor: "teal",
     description:
-      "Internal asset inventory platform serving 200+ Zoho users. Centralises and displays 10,000+ servers and domain records for audit and compliance workflows. Built and maintained 70+ backend APIs.",
+      "Contributed to the Product Assets module at Zoho, centralising inventory of 50,000+ servers and domain records for audit and compliance workflows. The platform serves 500+ internal users. Built and maintained a large portion of the backend API surface across the module.",
     stack: ["Java", "Java Servlets", "MySQL", "REST APIs"],
-    impact: "200+ internal users",
+    impact: "500+ internal users",
     status: "Shipped",
     statusColor: "green",
-  },
-  {
-    id: "packlio",
-    name: "Packlio",
-    type: "Personal Project",
-    typeColor: "indigo",
-    description:
-      "AI-powered product listing generator for global marketplace sellers on Etsy, Gumroad, and Creative Market. Upload a product image — Claude Vision generates SEO-optimised titles, descriptions, and tags instantly.",
-    stack: ["Next.js 14", "Supabase", "Claude API", "Razorpay", "Vercel", "TypeScript"],
-    impact: "Target $1K MRR",
-    status: "Building",
-    statusColor: "amber",
-    highlight: true,
-    url: "https://packlio.app",
   },
 ];
 
 export const techStack = {
   languages: ["Java", "SQL", "Python"],
-  frameworks: ["Spring Boot", "TestNG", "Apache Maven", "Apache Ant"],
+  frameworks: ["Spring Boot", "TestNG"],
   databases: ["MySQL"],
-  tools: ["Git", "Eclipse", "VS Code", "Kafka", "CI/CD"],
+  tools: ["Apache Kafka", "Apache Maven", "Apache Ant", "Docker", "Git", "CI/CD Pipelines"],
   aiTools: [
     {
       name: "Claude (Anthropic)",
-      use: "Code review, Packlio API, daily assistant",
+      use: "Code review, daily assistant",
       icon: "bot",
     },
     {
@@ -96,7 +95,7 @@ export const techStack = {
     },
     {
       name: "GitHub Copilot",
-      use: "Inline autocomplete in Eclipse & VS Code",
+      use: "Inline autocomplete + Agents for code generation",
       icon: "zap",
     },
   ],
@@ -114,28 +113,17 @@ export interface ExperienceEntry {
 export const experience: ExperienceEntry[] = [
   {
     company: "Zoho Corporation Pvt Ltd",
-    role: "Software Developer",
+    role: "Software Engineer",
     period: "Jan 2023 – Present",
     location: "Tiruchirappalli, Tamil Nadu",
     type: "Full-Time",
     highlights: [
-      "Developed and maintained 70+ backend APIs using Java Servlets across internal systems",
-      "Built automation testing framework on TestNG that captures results in MySQL for data-driven build validation",
-      "Contributed to Product Assets platform serving 200+ internal users with 10,000+ server and domain records",
-      "Applied Java OOPS, multithreading, and collections to build scalable concurrent backend components",
-      "Worked with Git for version control and collaborated across engineering teams",
-    ],
-  },
-  {
-    company: "Packlio",
-    role: "Founder & Solo Developer",
-    period: "2025 – Present",
-    location: "Remote",
-    type: "Personal Venture",
-    highlights: [
-      "Building AI-powered SaaS for marketplace sellers using Next.js, Supabase, and Claude API",
-      "Designed full product: pricing model, user flows, AI listing pipeline, and payment integration",
-      "Tech stack: Next.js 14, Supabase, Claude Sonnet (vision), Razorpay, Vercel",
+      "Designed and maintained 100+ REST APIs using Java Servlets, enabling seamless integrations across internal systems and reducing inter-team dependency resolution time",
+      "Built and owned the Product Assets module serving 500+ internal users, centralising inventory of 50,000+ servers and domains to support audit and compliance workflows",
+      "Engineered an automation testing framework using TestNG with MySQL-backed result persistence, enabling data-driven build validation and cutting manual QA effort by 30%",
+      "Optimised critical MySQL queries and schema design for test result storage and validation records, improving report generation performance",
+      "Contributed to a centralised logging system by implementing enhancements on the Apache Kafka pipeline, improving log routing reliability across multiple backend services",
+      "Applied multithreading and concurrent programming to build high-throughput backend components handling parallel API requests",
     ],
   },
 ];
@@ -148,4 +136,5 @@ export const education = {
   cgpa: "8.86",
   publication:
     "Vijayalakshmi, M., Shaambhavi, S., Murale Manohar, M (2023). Mobile Malware Detection: A Comparative Study of Machine Learning Models. Springer, Singapore. CVR 2023.",
+  publicationUrl: "https://link.springer.com/chapter/10.1007/978-981-99-4577-1_6",
 };

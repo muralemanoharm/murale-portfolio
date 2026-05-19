@@ -16,8 +16,8 @@ const stagger = {
 
 const stats = [
   { value: "3+", label: "Years at Zoho" },
-  { value: "70+", label: "APIs Built" },
-  { value: "10K+", label: "Assets Managed" },
+  { value: "100+", label: "APIs Built" },
+  { value: "50K+", label: "Assets Managed" },
 ];
 
 export default function About() {
@@ -110,19 +110,17 @@ export default function About() {
             </motion.p>
 
             <motion.p variants={fadeUp} style={{ color: "var(--text-muted)", lineHeight: 1.75, fontSize: 16 }}>
-              I&apos;m actively preparing for backend engineering roles at top-tier companies —
-              FAANG, Indian unicorns like Swiggy, Razorpay, and CRED, and MNCs like Atlassian and
-              Walmart. Outside work, I&apos;m building{" "}
+              Outside work, I&apos;m building{" "}
               <a
                 href="https://packlio.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "var(--accent)", textDecoration: "none" }}
               >
-                Packlio
+                Packlio,
               </a>{" "}
-              — an AI-powered SaaS that helps marketplace sellers generate optimised product
-              listings using Claude Vision.
+              an AI-powered SaaS that converts product images into marketplace listings via a
+              multi-agent pipeline using Claude API and Ideogram v3.
             </motion.p>
 
             {/* Stats */}
@@ -188,7 +186,10 @@ export default function About() {
               <div style={{ fontSize: 13, color: "var(--text-muted)" }}>
                 {education.institution} &middot; CGPA: {education.cgpa}
               </div>
-              <div
+              <a
+                href="https://link.springer.com/chapter/10.1007/978-981-99-4577-1_6"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -201,10 +202,11 @@ export default function About() {
                   color: "var(--accent)",
                   marginTop: 4,
                   width: "fit-content",
+                  textDecoration: "none",
                 }}
               >
-                📄 Springer Publication · CVR 2023
-              </div>
+                📄 Springer Publication · CVR 2023 ↗
+              </a>
             </motion.div>
           </motion.div>
         </motion.div>

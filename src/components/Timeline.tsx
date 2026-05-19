@@ -229,7 +229,10 @@ export default function Timeline() {
                     >
                       CGPA: {education.cgpa}
                     </span>
-                    <span
+                    <a
+                      href={education.publicationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
                         fontSize: 12,
                         background: "var(--accent-dim)",
@@ -237,10 +240,11 @@ export default function Timeline() {
                         borderRadius: 6,
                         padding: "3px 10px",
                         color: "var(--accent)",
+                        textDecoration: "none",
                       }}
                     >
-                      📄 Springer Publication · CVR 2023
-                    </span>
+                      📄 Springer Publication · CVR 2023 ↗
+                    </a>
                   </div>
                 </div>
                 <p style={{ fontSize: 12, color: "var(--text-faint)", lineHeight: 1.6, marginTop: 8 }}>

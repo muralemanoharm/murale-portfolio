@@ -14,30 +14,18 @@ export default function Footer() {
         style={{
           maxWidth: 1100,
           margin: "0 auto",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
+          display: "grid",
+          gridTemplateColumns: "1fr auto 1fr",
           alignItems: "center",
-          gap: 16,
         }}
       >
-        <span style={{ fontSize: 13, color: "var(--text-muted)" }}>
-          Murale Manohar &copy; 2025
+        <div />
+
+        <span style={{ fontSize: 13, color: "var(--text-muted)", textAlign: "center" }}>
+          Murale Manohar &copy; 2026
         </span>
 
-        <span style={{ fontSize: 13, color: "var(--text-muted)" }}>
-          Built with Next.js +{" "}
-          <a
-            href="https://claude.ai/code"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "var(--accent)", textDecoration: "none" }}
-          >
-            Claude Code
-          </a>
-        </span>
-
-        <div style={{ display: "flex", gap: 12 }}>
+        <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
           {[
             { href: personalInfo.github, icon: <GithubIcon size={17} />, label: "GitHub" },
             { href: personalInfo.linkedin, icon: <LinkedinIcon size={17} />, label: "LinkedIn" },

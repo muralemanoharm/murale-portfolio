@@ -123,7 +123,7 @@ export default function Hero() {
               }}
             />
             <style>{`@keyframes pulse-green { 0%,100%{opacity:1} 50%{opacity:0.4} }`}</style>
-            Open to FAANG / Unicorn opportunities
+            Open to Software Engineer roles
           </span>
         </motion.div>
 
@@ -170,7 +170,7 @@ export default function Hero() {
         >
           3+ years at Zoho building production APIs, automation frameworks, and developer tools.
           Currently building{" "}
-          <span style={{ color: "var(--accent)" }}>Packlio</span> — an AI-powered listing
+          <span style={{ color: "var(--accent)" }}>Packlio</span>, an AI-powered listing
           generator for marketplace sellers.
         </motion.p>
 

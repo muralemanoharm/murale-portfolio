@@ -26,13 +26,6 @@ const allFrameworks = [
   ...techStack.tools,
 ];
 
-const learningTags = [
-  "DSA (Java)",
-  "System Design",
-  "LeetCode",
-  "FAANG Interview Prep",
-];
-
 export default function TechStack() {
   return (
     <section
@@ -244,7 +237,7 @@ export default function TechStack() {
             </span>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-            {learningTags.map((tag) => (
+            {["Kubernetes", "AWS"].map((tag) => (
               <span
                 key={tag}
                 style={{
@@ -261,6 +254,7 @@ export default function TechStack() {
             ))}
           </div>
         </motion.div>
+
       </div>
     </section>
   );
