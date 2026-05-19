@@ -6,7 +6,7 @@ export const personalInfo = {
   phone: "+91 9361144291",
   location: "Tiruchirappalli, India",
   github: "https://github.com/muralemanoharm",
-  linkedin: "www.linkedin.com/in/murale-manohar-m-646284190",
+  linkedin: "https://www.linkedin.com/in/murale-manohar-m-646284190",
   summary:
     "Backend Java Developer with 3+ years of experience designing and scaling REST APIs, automation frameworks, and internal developer tooling at Zoho. Proficient in Java, Spring Boot, MySQL, Maven, Docker, and TestNG. Experienced in CI/CD pipelines, test automation, and AI-assisted development. Strong foundation in OOP, multithreading, and distributed system concepts.",
 };
