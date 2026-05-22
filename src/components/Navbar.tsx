@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/hooks/useTheme";
 
 const links = [
   { label: "About", href: "#about" },
@@ -13,6 +14,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -36,7 +38,11 @@ export default function Navbar() {
         right: 0,
         zIndex: 50,
         transition: "background 0.3s, border-color 0.3s",
-        background: scrolled ? "rgba(10,10,10,0.85)" : "transparent",
+        background: scrolled
+          ? theme === "dark"
+            ? "rgba(10,10,10,0.85)"
+            : "rgba(245,245,245,0.85)"
+          : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
       }}
@@ -111,7 +117,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <div style={{ gap: 32 }} className="hidden sm:flex">
+        <div style={{ gap: 32, alignItems: "center" }} className="hidden sm:flex">
           {links.map((link) => (
             <a
               key={link.href}
@@ -130,23 +136,86 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "var(--text-muted)",
+              padding: 4,
+              display: "flex",
+              alignItems: "center",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-muted)")}
+          >
+            {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+
+          <a
+            href="/Murale_Manohar_M_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              border: "1px solid var(--accent)",
+              color: "var(--accent)",
+              fontSize: 13,
+              fontWeight: 600,
+              padding: "6px 16px",
+              borderRadius: 6,
+              textDecoration: "none",
+              transition: "background 0.2s, color 0.2s",
+              whiteSpace: "nowrap",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "var(--accent)";
+              (e.currentTarget as HTMLElement).style.color = "#0a0a0a";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "transparent";
+              (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+            }}
+          >
+            Download CV
+          </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="sm:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{
-            background: "none",
-            border: "none",
-            color: "var(--text)",
-            cursor: "pointer",
-            padding: 4,
-          }}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile: theme toggle + hamburger */}
+        <div className="flex sm:hidden" style={{ alignItems: "center", gap: 8 }}>
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "var(--text-muted)",
+              padding: 4,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              background: "none",
+              border: "none",
+              color: "var(--text)",
+              cursor: "pointer",
+              padding: 4,
+            }}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile dropdown */}
@@ -154,7 +223,7 @@ export default function Navbar() {
         <div
           className="sm:hidden"
           style={{
-            background: "rgba(10,10,10,0.97)",
+            background: theme === "dark" ? "rgba(10,10,10,0.97)" : "rgba(245,245,245,0.97)",
             borderBottom: "1px solid var(--border)",
             padding: "12px 24px 20px",
             display: "flex",
