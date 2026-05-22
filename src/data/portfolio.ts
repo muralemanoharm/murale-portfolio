@@ -4,7 +4,7 @@ export const personalInfo = {
   tagline: "Software Engineer · Backend Systems · Java",
   email: "muralemanoharm@gmail.com",
   phone: "+91 9361144291",
-  location: "Tiruchirappalli, India",
+  location: "Tamil Nadu, India",
   github: "https://github.com/muralemanoharm",
   linkedin: "https://www.linkedin.com/in/murale-manohar-m-646284190",
   summary:
@@ -65,7 +65,7 @@ export const projects: Project[] = [
   },
   {
     id: "product-assets",
-    name: "Product Assets Module",
+    name: "Asset Inventory & Compliance Platform",
     type: "Work Project",
     typeColor: "teal",
     description:

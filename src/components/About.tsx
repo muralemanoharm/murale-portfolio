@@ -255,7 +255,7 @@ export default function About() {
           {/* Content */}
           <motion.div variants={stagger} style={{ display: "flex", flexDirection: "column", gap: 20, flex: "1", minWidth: "min(300px, 100%)", justifyContent: "center" }}>
             <motion.p variants={fadeUp} style={{ color: "var(--text-muted)", lineHeight: 1.75, fontSize: 16 }}>
-              I&apos;m a backend Software Engineer with 3+ years at Zoho Corporation, where I build
+              I&apos;m a Software Engineer with 3+ years at Zoho Corporation, where I build
               and maintain production APIs, automation frameworks, and internal developer tools.
               My work spans from designing MySQL schemas to building Eclipse plugins that cut build
               times for teams.

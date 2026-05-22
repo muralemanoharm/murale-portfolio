@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Clock } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "@/data/portfolio";
@@ -115,12 +115,15 @@ export default function Contact() {
                   marginBottom: 12,
                 }}
               >
-                Open to opportunities
+                Open to building scalable systems
               </h3>
+              <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.7, marginBottom: 10 }}>
+                Software engineer focused on scalable backend systems, distributed applications,
+                and event-driven architectures using Java, Kafka, and SQL.
+              </p>
               <p style={{ color: "var(--text-muted)", fontSize: 15, lineHeight: 1.7 }}>
-                I&apos;m actively exploring backend engineering roles at product companies — FAANG,
-                Indian unicorns, and MNCs. If you&apos;re hiring or want to discuss a project,
-                I&apos;d love to connect.
+                Interested in engineering roles centered around performance, reliability, and
+                system design.
               </p>
             </div>
 
@@ -141,10 +144,6 @@ export default function Contact() {
                 <Mail size={16} color="var(--accent)" />
                 {personalInfo.email}
               </a>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, color: "var(--text-muted)", fontSize: 14 }}>
-                <Phone size={16} color="var(--accent)" />
-                {personalInfo.phone}
-              </div>
               <div style={{ display: "flex", alignItems: "center", gap: 12, color: "var(--text-muted)", fontSize: 14 }}>
                 <MapPin size={16} color="var(--accent)" />
                 {personalInfo.location}
@@ -259,6 +258,11 @@ export default function Contact() {
                 <Send size={16} />
                 {loading ? "Sending..." : "Send Message"}
               </button>
+
+              <p style={{ fontSize: 12, color: "var(--text-faint)", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}>
+                <Clock size={12} />
+                Avg. response time: within 24 hours
+              </p>
 
               {status === "success" && (
                 <p style={{ fontSize: 13, color: "#22c55e", textAlign: "center" }}>

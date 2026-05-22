@@ -7,7 +7,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import { personalInfo } from "@/data/portfolio";
 
 const typewriterStrings = [
-  "Backend Java Developer",
+  "Software Engineer",
   "API & Systems Engineer",
   "Kafka · SQL · Spring Boot",
   "Building Packlio",
