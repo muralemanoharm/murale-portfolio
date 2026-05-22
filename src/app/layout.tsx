@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords:
     "Java developer, backend engineer, Zoho, Kafka, SQL, Spring Boot, FAANG prep, India",
   icons: {
-    icon: "/favicon.svg",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     shortcut: "/favicon.svg",
   },
   openGraph: {
