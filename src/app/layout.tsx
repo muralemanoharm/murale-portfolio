@@ -7,6 +7,10 @@ export const metadata: Metadata = {
     "Backend engineer at Zoho. 3+ years building scalable APIs, automation frameworks, and developer tools with Java, Kafka, and SQL. Creator of Packlio.",
   keywords:
     "Java developer, backend engineer, Zoho, Kafka, SQL, Spring Boot, FAANG prep, India",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   openGraph: {
     title: "Murale Manohar | Backend Java Developer",
     description: "Backend engineer at Zoho building with Java, Kafka, SQL.",

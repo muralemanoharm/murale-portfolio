@@ -55,16 +55,59 @@ export default function Navbar() {
         <a
           href="#home"
           onClick={(e) => scrollTo(e, "#home")}
-          style={{
-            fontFamily: "Space Grotesk, sans-serif",
-            fontWeight: 600,
-            fontSize: 20,
-            color: "var(--accent)",
-            textDecoration: "none",
-            letterSpacing: "-0.02em",
-          }}
+          style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 10 }}
+          aria-label="Home"
         >
-          Murale
+          {/* Hexagon icon */}
+          <div
+            style={{
+              width: 38,
+              height: 38,
+              background: "var(--accent)",
+              clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "Space Grotesk, sans-serif",
+                fontWeight: 700,
+                fontSize: 17,
+                color: "#0a0a0a",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              M
+            </span>
+          </div>
+
+          {/* Text */}
+          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.2 }}>
+            <span
+              style={{
+                fontFamily: "Space Grotesk, sans-serif",
+                fontWeight: 700,
+                fontSize: 15,
+                color: "var(--text)",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Murale
+            </span>
+            <span
+              style={{
+                fontFamily: "Space Grotesk, sans-serif",
+                fontWeight: 400,
+                fontSize: 11,
+                color: "var(--text-muted)",
+              }}
+            >
+              Manohar
+            </span>
+          </div>
         </a>
 
         {/* Desktop nav */}
