@@ -22,7 +22,9 @@ export function useTheme() {
       const next = prev === "dark" ? "light" : "dark";
       localStorage.setItem("theme", next);
       document.documentElement.classList.toggle("light", next === "light");
-      window.dispatchEvent(new CustomEvent("theme-change", { detail: next }));
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent("theme-change", { detail: next }));
+      }, 0);
       return next;
     });
   };
