@@ -113,7 +113,7 @@ export default function AIShowcase() {
                   height: 44,
                   borderRadius: 10,
                   background: "var(--accent-dim)",
-                  border: "1px solid rgba(0,212,170,0.2)",
+                  border: "1px solid rgba(99,102,241,0.2)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -152,7 +152,7 @@ export default function AIShowcase() {
                     color:
                       card.badgeColor === "accent" ? "var(--accent)" : "var(--text-muted)",
                     border: `1px solid ${card.badgeColor === "accent"
-                      ? "rgba(0,212,170,0.2)"
+                      ? "rgba(99,102,241,0.2)"
                       : "var(--border)"
                       }`,
                   }}

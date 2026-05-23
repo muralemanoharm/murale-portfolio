@@ -82,7 +82,7 @@ export default function Navbar() {
                 fontFamily: "Space Grotesk, sans-serif",
                 fontWeight: 700,
                 fontSize: 17,
-                color: "#0a0a0a",
+                color: "#ffffff",
                 letterSpacing: "-0.02em",
               }}
             >

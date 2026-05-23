@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
 import { education } from "@/data/portfolio";
+import { useTheme } from "@/hooks/useTheme";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -25,34 +26,66 @@ const CURL_CMD = "curl -s https://murale-portfolio.vercel.app/api/developer";
 
 type Seg = { t: string; c: string };
 
-const K = "#4ec9b0";      // teal — keys
-const S = "rgba(255,255,255,0.55)"; // muted white — string values
-const N = "#ce9178";      // orange — numbers
-const B = "#4fc1ff";      // bright blue — booleans
-const M = "rgba(255,255,255,0.22)"; // very muted — braces/commas
+const DARK = {
+  K: "#818cf8",
+  S: "rgba(255,255,255,0.55)",
+  N: "#ce9178",
+  B: "#4fc1ff",
+  M: "rgba(255,255,255,0.22)",
+  bg: "#0d0d0d",
+  border: "rgba(99,102,241,0.35)",
+  shadow: "0 0 40px rgba(99,102,241,0.07)",
+  titleBar: "rgba(255,255,255,0.02)",
+  titleBorder: "rgba(255,255,255,0.05)",
+  titleText: "rgba(255,255,255,0.3)",
+  cmdText: "rgba(255,255,255,0.85)",
+  headerText: "rgba(255,255,255,0.28)",
+};
 
-const json: Seg[][] = [
-  [{ t: "{", c: M }],
-  [{ t: '  "name"', c: K }, { t: ": ", c: M }, { t: '"Murale Manohar"', c: S }, { t: ",", c: M }],
-  [{ t: '  "role"', c: K }, { t: ": ", c: M }, { t: '"Software Engineer"', c: S }, { t: ",", c: M }],
-  [{ t: '  "company"', c: K }, { t: ": ", c: M }, { t: '"Zoho Corporation"', c: S }, { t: ",", c: M }],
-  [{ t: '  "experience_yrs"', c: K }, { t: ": ", c: M }, { t: "3", c: N }, { t: ",", c: M }],
-  [{ t: '  "stack"', c: K }, { t: ": [", c: M }],
-  [{ t: '    "Java"', c: S }, { t: ",", c: M }],
-  [{ t: '    "Spring Boot"', c: S }, { t: ",", c: M }],
-  [{ t: '    "Kafka"', c: S }, { t: ",", c: M }],
-  [{ t: '    "MySQL"', c: S }],
-  [{ t: "  ],", c: M }],
-  [{ t: '  "side_project"', c: K }, { t: ": {", c: M }],
-  [{ t: '    "name"', c: K }, { t: ": ", c: M }, { t: '"Packlio"', c: S }, { t: ",", c: M }],
-  [{ t: '    "desc"', c: K }, { t: ": ", c: M }, { t: '"AI-powered listing generator"', c: S }],
-  [{ t: "  },", c: M }],
-  [{ t: '  "location"', c: K }, { t: ": ", c: M }, { t: '"India"', c: S }, { t: ",", c: M }],
-  [{ t: '  "open_to_work"', c: K }, { t: ": ", c: M }, { t: "true", c: B, bold: true } as Seg & { bold?: boolean }],
-  [{ t: "}", c: M }],
-];
+const LIGHT = {
+  K: "#4F46E5",
+  S: "#374151",
+  N: "#c2410c",
+  B: "#2563eb",
+  M: "#9ca3af",
+  bg: "#f8f9ff",
+  border: "rgba(99,102,241,0.3)",
+  shadow: "0 0 40px rgba(99,102,241,0.08)",
+  titleBar: "rgba(99,102,241,0.04)",
+  titleBorder: "rgba(99,102,241,0.1)",
+  titleText: "#9ca3af",
+  cmdText: "#111827",
+  headerText: "#6b7280",
+};
+
+function buildJson(c: typeof DARK) {
+  return [
+    [{ t: "{", c: c.M }],
+    [{ t: '  "name"', c: c.K }, { t: ": ", c: c.M }, { t: '"Murale Manohar"', c: c.S }, { t: ",", c: c.M }],
+    [{ t: '  "role"', c: c.K }, { t: ": ", c: c.M }, { t: '"Software Engineer"', c: c.S }, { t: ",", c: c.M }],
+    [{ t: '  "company"', c: c.K }, { t: ": ", c: c.M }, { t: '"Zoho Corporation"', c: c.S }, { t: ",", c: c.M }],
+    [{ t: '  "experience_yrs"', c: c.K }, { t: ": ", c: c.M }, { t: "3", c: c.N }, { t: ",", c: c.M }],
+    [{ t: '  "stack"', c: c.K }, { t: ": [", c: c.M }],
+    [{ t: '    "Java"', c: c.S }, { t: ",", c: c.M }],
+    [{ t: '    "Spring Boot"', c: c.S }, { t: ",", c: c.M }],
+    [{ t: '    "Kafka"', c: c.S }, { t: ",", c: c.M }],
+    [{ t: '    "MySQL"', c: c.S }],
+    [{ t: "  ],", c: c.M }],
+    [{ t: '  "side_project"', c: c.K }, { t: ": {", c: c.M }],
+    [{ t: '    "name"', c: c.K }, { t: ": ", c: c.M }, { t: '"Packlio"', c: c.S }, { t: ",", c: c.M }],
+    [{ t: '    "desc"', c: c.K }, { t: ": ", c: c.M }, { t: '"AI-powered listing generator"', c: c.S }],
+    [{ t: "  },", c: c.M }],
+    [{ t: '  "location"', c: c.K }, { t: ": ", c: c.M }, { t: '"India"', c: c.S }, { t: ",", c: c.M }],
+    [{ t: '  "open_to_work"', c: c.K }, { t: ": ", c: c.M }, { t: "true", c: c.B, bold: true } as Seg & { bold?: boolean }],
+    [{ t: "}", c: c.M }],
+  ] as Seg[][];
+}
 
 function TerminalCard() {
+  const { theme } = useTheme();
+  const C = theme === "light" ? LIGHT : DARK;
+  const json = buildJson(C);
+
   const [phase, setPhase] = useState<"cmd" | "header" | "json" | "done">("cmd");
   const [cmdChars, setCmdChars] = useState(0);
   const [jsonLines, setJsonLines] = useState(0);
@@ -90,10 +123,10 @@ function TerminalCard() {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        background: "#0d0d0d",
-        border: "1px solid rgba(0,212,170,0.35)",
+        background: C.bg,
+        border: `1px solid ${C.border}`,
         borderRadius: 12,
-        boxShadow: "0 0 40px rgba(0,212,170,0.07)",
+        boxShadow: C.shadow,
         overflow: "hidden",
         fontFamily: "JetBrains Mono, monospace",
         fontSize: 12,
@@ -108,14 +141,14 @@ function TerminalCard() {
           alignItems: "center",
           gap: 8,
           padding: "11px 16px",
-          borderBottom: "1px solid rgba(255,255,255,0.05)",
-          background: "rgba(255,255,255,0.02)",
+          borderBottom: `1px solid ${C.titleBorder}`,
+          background: C.titleBar,
         }}
       >
         <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57", flexShrink: 0 }} />
         <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e", flexShrink: 0 }} />
         <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840", flexShrink: 0 }} />
-        <span style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", marginLeft: 8 }}>
+        <span style={{ fontSize: 11, color: C.titleText, marginLeft: 8 }}>
           murale@portfolio — bash
         </span>
       </div>
@@ -125,8 +158,8 @@ function TerminalCard() {
 
         {/* Curl command */}
         <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
-          <span style={{ color: K, fontSize: 13, flexShrink: 0 }}>›</span>
-          <span style={{ color: "rgba(255,255,255,0.85)", wordBreak: "break-all", minWidth: 0 }}>
+          <span style={{ color: C.K, fontSize: 13, flexShrink: 0 }}>›</span>
+          <span style={{ color: C.cmdText, wordBreak: "break-all", minWidth: 0 }}>
             {CURL_CMD.slice(0, cmdChars)}
             {phase === "cmd" && (
               <span
@@ -134,7 +167,7 @@ function TerminalCard() {
                   display: "inline-block",
                   width: 7,
                   height: 13,
-                  background: K,
+                  background: C.K,
                   marginLeft: 1,
                   verticalAlign: "text-bottom",
                   animation: "term-blink 1s step-end infinite",
@@ -146,9 +179,9 @@ function TerminalCard() {
 
         {/* HTTP header */}
         {(phase === "header" || phase === "json" || phase === "done") && (
-          <div style={{ color: "rgba(255,255,255,0.28)", marginBottom: 10, fontSize: 11 }}>
+          <div style={{ color: C.headerText, marginBottom: 10, fontSize: 11 }}>
             {"# HTTP/2 200 "}
-            <span style={{ color: "#4ec9b0", fontWeight: 700 }}>OK</span>
+            <span style={{ color: C.K, fontWeight: 700 }}>OK</span>
             {"  · content-type: application/json · 11ms"}
           </div>
         )}
@@ -177,13 +210,13 @@ function TerminalCard() {
         {/* Final blinking cursor */}
         {phase === "done" && (
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: "auto", paddingTop: 16 }}>
-            <span style={{ color: K, fontSize: 13 }}>›</span>
+            <span style={{ color: C.K, fontSize: 13 }}>›</span>
             <span
               style={{
                 display: "inline-block",
                 width: 8,
                 height: 14,
-                background: K,
+                background: C.K,
                 verticalAlign: "text-bottom",
                 animation: "term-blink 1s step-end infinite",
               }}
@@ -347,7 +380,7 @@ export default function About() {
                   alignItems: "center",
                   gap: 6,
                   background: "var(--accent-dim)",
-                  border: "1px solid rgba(0,212,170,0.2)",
+                  border: "1px solid rgba(99,102,241,0.2)",
                   borderRadius: 6,
                   padding: "4px 10px",
                   fontSize: 12,

@@ -187,7 +187,7 @@ export default function Hero() {
             }}
             style={{
               background: "var(--accent)",
-              color: "#0a0a0a",
+              color: "#ffffff",
               fontWeight: 600,
               fontSize: 15,
               padding: "12px 28px",

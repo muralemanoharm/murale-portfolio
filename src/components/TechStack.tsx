@@ -178,7 +178,7 @@ export default function TechStack() {
             variants={fadeUp}
             style={{
               background: "var(--accent-dim)",
-              border: "1px solid rgba(0,212,170,0.2)",
+              border: "1px solid rgba(99,102,241,0.2)",
               borderRadius: 12,
               padding: 24,
             }}

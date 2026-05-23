@@ -3,15 +3,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: #00d4aa;
-  --color-accent-dim: rgba(0, 212, 170, 0.1);
+  --color-accent: #6366F1;
+  --color-accent-dim: rgba(99, 102, 241, 0.1);
   --color-indigo: #6366f1;
   --color-indigo-dim: rgba(99, 102, 241, 0.1);
   --color-surface: #111111;
   --color-surface-2: #161616;
   --color-border: #1f1f1f;
   --color-border-2: #2a2a2a;
-  --color-muted: #888888;
+  --color-muted: #A1A1AA;
   --color-faint: #444444;
 
   --font-grotesk: "Space Grotesk", sans-serif;
@@ -20,16 +20,16 @@
 }
 
 :root {
-  --bg: #0a0a0a;
-  --surface: #111111;
-  --surface-2: #161616;
-  --border: #1f1f1f;
-  --border-2: #2a2a2a;
+  --bg: #0B0F19;
+  --surface: #111827;
+  --surface-2: #1a2033;
+  --border: #1f2a3c;
+  --border-2: #2a3a52;
   --text: #e8e8e8;
-  --text-muted: #888888;
-  --text-faint: #444444;
-  --accent: #00d4aa;
-  --accent-dim: rgba(0, 212, 170, 0.13);
+  --text-muted: #A1A1AA;
+  --text-faint: #4b5563;
+  --accent: #6366F1;
+  --accent-dim: rgba(99, 102, 241, 0.13);
   --indigo: #6366f1;
   --indigo-dim: rgba(99, 102, 241, 0.13);
 }
@@ -43,8 +43,8 @@ html.light {
   --text:       #111111;
   --text-muted: #555555;
   --text-faint: #aaaaaa;
-  --accent:     #00b894;
-  --accent-dim: rgba(0, 184, 148, 0.13);
+  --accent:     #4F46E5;
+  --accent-dim: rgba(79, 70, 229, 0.13);
 }
 
 * {

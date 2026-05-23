@@ -176,7 +176,7 @@ export default function Contact() {
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLElement;
                     el.style.color = "var(--accent)";
-                    el.style.borderColor = "rgba(0,212,170,0.3)";
+                    el.style.borderColor = "rgba(99,102,241,0.3)";
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget as HTMLElement;
@@ -244,8 +244,8 @@ export default function Contact() {
                   gap: 8,
                   width: "100%",
                   padding: "12px 24px",
-                  background: loading ? "rgba(0,212,170,0.5)" : "var(--accent)",
-                  color: "#0a0a0a",
+                  background: loading ? "rgba(99,102,241,0.5)" : "var(--accent)",
+                  color: "#ffffff",
                   border: "none",
                   borderRadius: 8,
                   fontSize: 15,

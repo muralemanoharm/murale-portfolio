@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, BookOpen } from "lucide-react";
+import { Check, BookOpen, Briefcase } from "lucide-react";
 import { experience, education } from "@/data/portfolio";
 
 const fadeLeft = {
@@ -68,7 +68,7 @@ export default function Timeline() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            style={{ display: "flex", flexDirection: "column", gap: 48 }}
+            style={{ display: "flex", flexDirection: "column", gap: 48, position: "relative", zIndex: 1 }}
           >
             {experience.map((entry, i) => (
               <motion.div
@@ -77,7 +77,7 @@ export default function Timeline() {
                 style={{ display: "flex", gap: 28 }}
               >
                 {/* Dot */}
-                <div style={{ flexShrink: 0, marginTop: 4 }}>
+                <div style={{ flexShrink: 0, marginTop: 4, position: "relative", zIndex: 1 }}>
                   <div
                     style={{
                       width: 32,
@@ -90,16 +90,7 @@ export default function Timeline() {
                       justifyContent: "center",
                     }}
                   >
-                    {i === 0 && (
-                      <div
-                        style={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: "50%",
-                          background: "#0a0a0a",
-                        }}
-                      />
-                    )}
+                    {i === 0 && <Briefcase size={15} color="#ffffff" />}
                   </div>
                 </div>
 
@@ -236,7 +227,7 @@ export default function Timeline() {
                       style={{
                         fontSize: 12,
                         background: "var(--accent-dim)",
-                        border: "1px solid rgba(0,212,170,0.2)",
+                        border: "1px solid rgba(99,102,241,0.2)",
                         borderRadius: 6,
                         padding: "3px 10px",
                         color: "var(--accent)",

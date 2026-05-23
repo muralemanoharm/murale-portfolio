@@ -70,7 +70,7 @@ export default function ChatWidget() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: "0 4px 20px rgba(0,212,170,0.35)",
+          boxShadow: "0 4px 20px rgba(99,102,241,0.35)",
           zIndex: 999,
           transition: "transform 0.2s",
         }}
@@ -78,9 +78,9 @@ export default function ChatWidget() {
         onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
       >
         {isOpen ? (
-          <X size={22} color="#0a0a0a" />
+          <X size={22} color="#ffffff" />
         ) : (
-          <Bot size={22} color="#0a0a0a" />
+          <Bot size={22} color="#ffffff" />
         )}
       </button>
 

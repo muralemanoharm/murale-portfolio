@@ -132,7 +132,7 @@ export default function Projects() {
                       project.typeColor === "teal" ? "var(--accent)" : "var(--indigo)",
                     border: `1px solid ${
                       project.typeColor === "teal"
-                        ? "rgba(0,212,170,0.2)"
+                        ? "rgba(99,102,241,0.2)"
                         : "rgba(99,102,241,0.2)"
                     }`,
                   }}
