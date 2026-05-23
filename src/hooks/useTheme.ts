@@ -9,6 +9,12 @@ export function useTheme() {
     const initial = stored ?? "dark";
     setTheme(initial);
     document.documentElement.classList.toggle("light", initial === "light");
+
+    const handler = (e: Event) => {
+      setTheme((e as CustomEvent<"dark" | "light">).detail);
+    };
+    window.addEventListener("theme-change", handler);
+    return () => window.removeEventListener("theme-change", handler);
   }, []);
 
   const toggleTheme = () => {
@@ -16,6 +22,7 @@ export function useTheme() {
       const next = prev === "dark" ? "light" : "dark";
       localStorage.setItem("theme", next);
       document.documentElement.classList.toggle("light", next === "light");
+      window.dispatchEvent(new CustomEvent("theme-change", { detail: next }));
       return next;
     });
   };
